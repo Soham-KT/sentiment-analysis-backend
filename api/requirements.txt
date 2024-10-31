@@ -1,4 +1,0 @@
-dill==0.3.8
-python-dotenv==1.0.1
-s3fs==2024.10.0
-tensorflow==2.17.0
