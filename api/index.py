@@ -26,26 +26,32 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b'404 Not Found')
 
-    def do_POST(self):
-        if self.path == '/predict':
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            parsed_data = urllib.parse.parse_qs(post_data.decode('utf-8'))
+#     def do_POST(self):
+#         if self.path == '/predict':
+#             content_length = int(self.headers['Content-Length'])
+#             post_data = self.rfile.read(content_length)
+#             parsed_data = urllib.parse.parse_qs(post_data.decode('utf-8'))
 
-            text = parsed_data.get('review', [None])[0]
-            prediction = model_predict(text=text)  # Ensure model_predict is defined/imported
+#             text = parsed_data.get('review', [None])[0]
+#             prediction = model_predict(text=text)  # Ensure model_predict is defined/imported
 
-            data = {
-                'review': text,
-                'prediction': prediction
-            }
+#             data = {
+#                 'review': text,
+#                 'prediction': prediction
+#             }
 
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps(data).encode('utf-8'))
-        else:
-            self.send_response(404)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(b'404 Not Found')
+#             self.send_response(200)
+#             self.send_header('Content-type', 'application/json')
+#             self.end_headers()
+#             self.wfile.write(json.dumps(data).encode('utf-8'))
+#         else:
+#             self.send_response(404)
+#             self.send_header('Content-type', 'text/plain')
+#             self.end_headers()
+#             self.wfile.write(b'404 Not Found')
+            
+# if __name__ == '__main__':
+#     server_address = ('', 8000)  # Listen on all interfaces
+#     httpd = HTTPServer(server_address, Handler)
+#     print(f'Starting server on port {8000}...')
+#     httpd.serve_forever()
