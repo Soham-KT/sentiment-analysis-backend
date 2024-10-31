@@ -1,6 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import urllib.parse
+from data_predict import model_predict
+
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
