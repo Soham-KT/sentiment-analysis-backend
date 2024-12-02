@@ -43,7 +43,34 @@ api/
    ```
    
 3. Run the Flask app
+   ```bash
+   python app.py
+   ```
    The app will be available at `http://localhost:5000`
 
 ---
 
+## API Endpoints
+
+1. `/` (GET): Test endpoint.
+- Response :
+    ```json
+    "Hello World"
+    ```
+3. `/data` (GET): Returns a sample review and prediction.
+- Response :
+     ```json
+     {
+       'review': 'sample review',
+       'prediction': 'negative'
+     }
+     ```
+5. `/predict` (POST): Accepts a product review and returns the sentiment and polarity score.'
+- Response :
+    ```json
+    {
+      'review': 'your review',
+      'prediction': 'positive / negative'
+    }
+    ```
+    
