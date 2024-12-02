@@ -36,3 +36,14 @@ api/
    git clone <repo-url>
    cd sentiment-analysis-of-product-reviews-backend/api
    ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+3. Run the Flask app
+   The app will be available at `http://localhost:5000`
+
+---
+
