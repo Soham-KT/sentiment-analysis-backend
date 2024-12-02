@@ -25,3 +25,14 @@ api/
 ├── stop_words.txt    # Custom stopword list
 ├── tokenizer.pkl     # Pre-trained tokenizer
 ├── vercel.json       # Deployment configuration (for Vercel)
+```
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd sentiment-analysis-of-product-reviews-backend/api
+   ```
