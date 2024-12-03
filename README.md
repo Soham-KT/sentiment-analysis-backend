@@ -57,7 +57,7 @@ api/
     ```json
     "Hello World"
     ```
-3. `/data` (GET): Returns a sample review and prediction.
+2. `/data` (GET): Returns a sample review and prediction.
 - Response :
      ```json
      {
@@ -65,7 +65,7 @@ api/
        "prediction": "negative"
      }
      ```
-5. `/predict` (POST): Accepts a product review and returns the sentiment and polarity score.'
+3. `/predict` (POST): Accepts a product review and returns the sentiment and polarity score.'
 - Response :
     ```json
     {
