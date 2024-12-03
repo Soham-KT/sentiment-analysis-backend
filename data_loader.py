@@ -18,7 +18,7 @@ class ModelLoader:
             raise Exception('This is a singleton')
         
         
-        self.model = tf.keras.models.load_model(os.path.join(curr_path, 'model', 'lstm_model_new.keras'))
+        self.model = tf.keras.models.load_model(os.path.join(curr_path, 'model', 'lstm_model_new_.keras'))
         
     def get_data(self):
         return self.model

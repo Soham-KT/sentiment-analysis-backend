@@ -32,8 +32,11 @@ def preprocess_text(text):
     # remove stopwords
     with open(os.path.join(curr_path, 'data', 'stop_words.txt'), 'rb') as f:
         stop_words = pk.load(f)
-        
-    sentence = ' '.join([word for word in sentence.split() if word not in stop_words])
+            
+
+    critical_stopwords = {'no', 'not', 'never', 'none', 'without', 'should', 'could', 'might', 'must', 'will', 'would', 'very', 'too', 'only', 'just', 'even'}
+    sentence = ' '.join([word for word in sentence.split() if word not in stop_words or word in critical_stopwords])
+
     
     return sentence
 
@@ -44,12 +47,12 @@ def model_predict(text, tokenizer=lstm_tokenizer, model=lstm_model):
     padded_sequence = pad_sequences(sequence, maxlen=100)
     prediction = model.predict(padded_sequence)
         
-    if prediction < 0.6:
+    if prediction < 0.505:
         pred = 'Negative'
-    elif  prediction == 0.6:
-        pred = 'Neutral'
-    else:
+    elif prediction > 0.55:
         pred = 'Positive'
+    else:
+        pred = 'neutral'
     
     return pred, prediction
 
@@ -57,6 +60,10 @@ def model_predict(text, tokenizer=lstm_tokenizer, model=lstm_model):
 if __name__ == '__main__':
     text = "This DVD will be a disappointment if you get it hoping to see some substantial portion of the acts of the various comics listed on the cover. All you get here are snippets of performance, at best. The rest is just loose-leaf reminiscence about the good old days in Boston, in the early 80's, when a lot of comics were hanging out together and getting their start.It's like a frat house reunion. There's a lot of lame nostalgia. There are quite a few guffaws recalling jokes (practical and otherwise)perpetrated - back then. But you had to have been there to appreciate all the basically good ol' boy camaraderie. If you weren't actually a part of that scene, all this joshing and jostling will fall flat.If you want to actually hear some of these comics' routines - you will have to look elsewhere."
     
+    text = 'This movie was okay'
+    
     result = model_predict(text)
     
     print(f'Sentiment: {result[0]}\nPolarity:{result[1][0][0]}')
+    
+    print(preprocess_text(text))
