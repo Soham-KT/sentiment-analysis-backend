@@ -61,16 +61,16 @@ api/
 - Response :
      ```json
      {
-       'review': 'sample review',
-       'prediction': 'negative'
+       "review": "sample review",
+       "prediction": "negative"
      }
      ```
 5. `/predict` (POST): Accepts a product review and returns the sentiment and polarity score.'
 - Response :
     ```json
     {
-      'review': 'your review',
-      'prediction': 'positive / negative'
+      "review": "your review",
+      "prediction": "positive / negative"
     }
     ```
     
